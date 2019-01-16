@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>vidu javascript</title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+        <style type="text/css" media="screen">
+          .erro {color:red;}
+        </style>
+        <script language="javascript">
+          function ten()
+          {
+             var username = document.getElementById("username").value;
+            if ((username == "") ||  ((isNaN(username.slice(0, 1))) == false)  || (username == " ") ){
+              document.getElementById("erro_username").innerHTML="Bạn phải nhập tên và đúng định dạng";
+              return false;
+            }
+            else {
+               document.getElementById("erro_username").innerHTML="";
+            }
+          }
+        //kt passwword
+           function mk()
+          {
+             var password = document.getElementById("password").value;
+            if ((password == "") || (password.length<8) ){
+              document.getElementById("erro_password").innerHTML="Bạn phải nhập mật khẩu và có độ dài trên 8 ký tự!";
+              return false;
+            }
+            else {
+               document.getElementById("erro_password").innerHTML="";
+            }
+          }
+        //kt re-password
+           function check()
+          {
+             var password = document.getElementById("password").value;
+             var re_password = document.getElementById("re-password").value;
+            if (password != re_password){
+              document.getElementById("erro_repassword").innerHTML="Mật khẩu nhập lại không đúng";
+              return false;
+            }
+            else{
+            document.getElementById("erro_repassword").innerHTML="";
+            }
+          }
+
+
+        //kt email
+           function mail()
+          {
+             var mail = document.all.email.value;
+             var acong = mail.indexOf ('@');
+             var daucham = mail.lastIndexOf ('.com');
+            if ((acong<1) || (daucham<=acong+1)){
+              document.getElementById("erro_email").innerHTML="Địa chỉ email chưa chính xác!";
+              return false;
+            }
+            else{
+              document.getElementById("erro_email").innerHTML="";
+            }
+          }
+
+        //kt sdt
+           function sdt()
+          {
+            var phone = document.getElementById("phone").value;
+            if(isNaN(phone) || (phone.slice(0, 1))!= 0 || (phone.length) > 11 || (phone.length) < 10 ){
+              document.getElementById("erro_phone").innerHTML="Số điện thoại chưa chính xác";
+              return false;
+            }
+            else{
+              document.getElementById("erro_phone").innerHTML="";
+            }
+          }
+
+
+        </script>
+        
+        <form method="post" action="">
+            <table border="1" cellspacing="0" cellpadding="5">
+                <tr>
+                    <td>Tên đăng nhập</td>
+                    <td>
+                        <input type="text" name="username" id="username" value=""  onkeyup="ten()"/>
+                        <span id="erro_username" class="erro"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Mật khẩu:</td>
+                    <td>
+                        <input type="password" name="password" id="password" value=""  onkeyup="mk()">
+                        <span id="erro_password" class="erro"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Nhập lại mật khẩu:</td>
+                    <td>
+                        <input type="password" name="re-password" id="re-password" value=""  onkeyup="check()"/>
+                        <span id="erro_repassword" class="erro" ></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>
+                        <input type="text" name="email" id="email" value=""  onkeyup="mail()"/>
+                        <span id="erro_email" class="erro"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Số điện thoại</td>
+                    <td>
+                        <input type="text" name="phone" id="phone" value="" onkeyup="sdt()"/>
+                        <span id="erro_phone" class="erro"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="Đăng ký"  /> 
+                        <input type="reset" value="Hủy" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
